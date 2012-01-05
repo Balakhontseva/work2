@@ -1,10 +1,16 @@
-%p#notice= notice
-%p
-  %b Login:
-  = @user.login
-%p
-  %b Password:
-  = @user.password
-= link_to 'Edit', edit_user_path(@user)
-|
-\#{link_to 'Back', users_path}
+%table.profile
+  %tr
+    %td.main
+      - unless @user.posts.empty?
+        %table.posts{:summary => "User posts"}
+          = render @posts
+        = will_paginate @posts
+    %td.sidebar.round
+      %strong Login
+      = @user.login
+      %br/
+      %strong URL
+      = link_to user_path(@user), @user
+      %br/
+      %strong Posts
+      = @user.posts.count

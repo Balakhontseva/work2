@@ -1,0 +1,9 @@
+- if signed_in?
+  %table.front{:summary => "For signed-in users"}
+    %tr
+      %td.main
+        %h1.post What's up?
+        = render 'shared/post_form'
+        = render 'shared/feed'
+
+- else

@@ -1,0 +1,11 @@
+%html
+  %head
+    %title= "Title"
+    = csrf_meta_tag
+    = render 'layouts/stylesheets'
+  %body
+    .container
+      = render 'layouts/header'
+      %section.round
+        = yield
+      = render 'layouts/footer'
