@@ -1,0 +1,6 @@
+%h1 All users
+%ul.users
+  - @users.each do |user|
+    %li
+      = gravatar_image_tag user.email, :class => "gravatar", :size => 30
+      = link_to user.name, user

@@ -1,0 +1,27 @@
+= form_for(@user) do |f|
+  = render 'shared/error_messages', :object => f.object
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+    = "Current name is "+current_user.name.to_s
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email
+    = "Current email is "+current_user.email.to_s
+  .field
+    = f.label :skypename
+    %br/
+    = f.text_field :skypename
+    = "Current Skypename is "+current_user.skypename.to_s
+  .field
+    = f.label :icq
+    %br/
+    = f.text_field :icq
+    ="Current ICQ is "+current_user.icq.to_s
+  .actions
+    = f.submit "Update"
+%div
+  = gravatar_image_tag(@user.to_s)
+  %a{:href => "http://gravatar.com/emails"} change

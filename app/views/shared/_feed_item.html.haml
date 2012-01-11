@@ -1,0 +1,16 @@
+%tr
+  %td.gravatar
+    = link_to gravatar_image_tag(feed_item.user.email.to_s), feed_item.user
+    %span.user
+      = link_to wrap(feed_item.user.name), feed_item.user
+      %br
+      wrote:
+  %td.post.round
+    %span.content= wrap(feed_item.content)
+    %span.timestamp
+      Posted #{time_ago_in_words(feed_item.created_at)} ago.
+  - user = feed_item.user rescue User.find(post.user_id)
+  - if current_user?(user)
+    %td
+      = link_to "delete", feed_item, :confirm => "You sure?", :method => :delete
+

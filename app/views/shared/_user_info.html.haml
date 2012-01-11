@@ -1,0 +1,7 @@
+.user_info
+  %a{:href => user_path(current_user)}
+    = gravatar_image_tag(current_user.email.to_s)
+    %span.user_name
+      = current_user.name
+    %span.posts
+      = pluralize(current_user.posts.count, "post")

@@ -1,0 +1,19 @@
+
+development:
+  adapter: mysql2
+  database: dev6
+  username: root
+  password: 
+
+test:
+  adapter: mysql2
+  database: test6
+  username: root
+  password: 
+
+production:
+  adapter: mysql2
+  database: prd6
+  username: root
+  password: 
+ 

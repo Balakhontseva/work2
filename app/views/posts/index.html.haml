@@ -1,0 +1,15 @@
+- if signed_in?
+  %table.front{:summary => "For signed-in users"}
+    %tr
+      %td.main
+        %h1.post What's up?
+        = render 'shared/post_form'
+        = render 'shared/feed'
+      %td.sidebar.round
+        = render 'shared/user_info'
+        = render 'shared/stats'
+- else
+  %h1 Not sign in
+
+  = link_to "Sign up now!", signup_path
+  = link_to "Have an account?", signin_path

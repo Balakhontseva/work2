@@ -1,0 +1,21 @@
+= form_for(@user) do |f|
+  = render 'shared/error_messages', :object => f.object
+  .field
+    = f.label :login
+    %br/
+    = f.text_field :login
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email
+  .field
+    = f.label :password
+    %br/
+    = f.password_field :password
+  .actions
+    = f.submit "Create"
+  

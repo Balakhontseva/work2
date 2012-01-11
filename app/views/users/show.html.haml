@@ -1,0 +1,34 @@
+%table.profile{:summary => "Profile information"}
+  %tr
+    %td.main
+      %h1
+        = gravatar_image_tag @user.email, :class => "gravatar" #gravatar_for @user
+        = @user.name
+      = render 'follow_form' if signed_in?
+      - unless @user.posts.empty?
+        %table.posts{:summary => "User posts"}
+          = render @posts
+        = will_paginate @posts
+    %td.sidebar.round
+      %strong Name
+      = @user.name
+      %br/
+      %strong URL
+      = link_to user_path(@user), @user
+      %br/
+      %strong Posts
+      = @user.posts.count
+      %br/
+      %strong Email
+      = @user.email
+      %br/
+      %strong Skype-name
+      = image_tag("skype.png", :class => "round")
+      = @user.skypename
+      %br/
+      %strong ICQ
+      = image_tag("icq.png", :class => "round")
+      = @user.icq
+      %br/
+      = render 'shared/stats'
+
